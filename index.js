@@ -92,5 +92,46 @@ function setCardData(cards){
 
 createCards() 
 
+// Event listeners
+
+// Next button
+
+nextBtn.addEventListener('click', () => {
+    cardsEl[currentActiveCard].className = 'card left'
+
+    currentActiveCard = currentActiveCard + 1 // if we are at 1 it will move to 2 and so on
+
+    // we need to set the index on the last card
+
+    if(currentActiveCard > cardsEl.legth -1) {
+        currentActiveCard = cardsEl.legth -1
+    }
+
+    // Our array is a 0 index base
+
+    cardsEl[currentActiveCard].className = 'card-active'
+
+    updateCurrentText()
+}) 
+
+//Prev button
+
+    prevBtn.addEventListener('click', () => {
+    cardsEl[currentActiveCard].className = 'card-right'
+
+    currentActiveCard = currentActiveCard -1
+
+    if(currentActiveCard < 0) {
+        currentActiveCard = 0
+    }  
+
+    cardsEl[currentActiveCard].className = 'card-right'
+
+    updateCurrentText()
+})
+
+
+
+
 
 
