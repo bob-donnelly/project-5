@@ -34,5 +34,49 @@ function createCards () {
 
 function createCard() {
     const card = document.createElement('div')
-    
+    card.classList.add('card')
+
+    if(index === 0) {
+        card.classList.add('active')
+    }
+
+    card.innerHTML = ` <div class="inner-card">
+    <div class="inner-card-front">
+      <p>
+        What is JavaSCript?
+      </p>
+    </div>
+    <div class="inner-card-back">
+      <p>
+        A programming language
+      </p>
+    </div>
+  </div>
+</div>
+<div class="cards">
+  <div class="inner-card">
+    <div class="inner-card-front">
+      <p>
+          $(data.question) `
+
+          card.addEventListener('click', () => card.classList.toggle('show-answer'))
+
+          // Add to DOM cards
+
+          cardsEl.push(card)
+
+          cardsContainer.appendChild(card)
+
+          updateCurrentText()
 }
+
+// Show number of cards]
+
+function updateCurrentText() {
+    currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}` // Add 1 to it because it starts at a 0 index
+}
+
+
+
+
+
