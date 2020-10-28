@@ -26,17 +26,17 @@ const cards = getCardsData()
 
 //Create all cards
 
-function createCards () {
+function createCards (){
     cardsData.forEach((data, index) => createCard(data, index)) // loop through data and creating a array of cards
 }
 
 // Create a single card in the DOM
 
-function createCard() {
+function createCard(){
     const card = document.createElement('div')
     card.classList.add('card')
 
-    if(index === 0) {
+    if(index === 0){
         card.classList.add('active')
     }
 
@@ -72,15 +72,25 @@ function createCard() {
 
 // Show number of cards]
 
-function updateCurrentText() {
+function updateCurrentText(){
     currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}` // Add 1 to it because it starts at a 0 index
 }
 
 // Get cards from loal storage
 
-function getCardsData() {
+function getCardsData(){
     const cards = JSON.parse(localStorage.getItem('cards'))
+    return cards == null ? [] : cards
 }
+
+// Add cards to local storage
+
+function setCardData(cards){
+    localStorage.setItem('cards', JSON.stringify(cards)) // We want to turn it into a string
+    window.location.reload() // To reflect the cards data on the DOM using the BOM?
+}
+
+createCards() 
 
 
 
