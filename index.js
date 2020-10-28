@@ -76,7 +76,11 @@ function updateCurrentText() {
     currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}` // Add 1 to it because it starts at a 0 index
 }
 
+// Get cards from loal storage
 
+function getCardsData() {
+    const cards = JSON.parse(localStorage.getItem('cards'))
+}
 
 
 
