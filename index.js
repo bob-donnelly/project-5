@@ -4,8 +4,9 @@ const cardsContainer = document.getElementById('cards-container')
 const prevBtn = document.getElementById('prev')
 const nextBtn = document.getElementById('next')
 const currentEl = document.getElementById('current')
-const showEl = document.getElementById('show')
-const hideEl = document.getElementById('hide')
+const showBtn = document.getElementById('show')
+const cardsData = document.getElementById(cardsData)
+const hideBtn = document.getElementById('hide')
 const questionEl = document.getElementById('question')
 const answerEl = document.getElementById('answer')
 const addQuestionBtn = document.getElementById('add-question')
@@ -22,42 +23,35 @@ const cardEl = [] // Store DOM cards in a arrayof elements
 
 // Local storage of card data
 
-const cards = getCardsData()
+const cards = getCardsData();
 
 //Create all cards
 
 function createCards (){
-    cardsData.forEach((data, index) => createCard(data, index)) // loop through data and creating a array of cards
+    cardsData.forEach((data, index) => createCard(data, index)); // loop through data and creating a array of cards
 }
 
 // Create a single card in the DOM
 
 function createCard(){
-    const card = document.createElement('div')
-    card.classList.add('card')
+    const card = document.createElement('div');
+    card.classList.add('card');
 
     if(index === 0){
-        card.classList.add('active')
+        card.classList.add('active');
     }
 
     card.innerHTML = ` <div class="inner-card">
     <div class="inner-card-front">
       <p>
-        What is JavaSCript?
+        ${data.question}
       </p>
     </div>
     <div class="inner-card-back">
       <p>
-        A programming language
+      ${data.answer}
       </p>
-    </div>
-  </div>
-</div>
-<div class="cards">
-  <div class="inner-card">
-    <div class="inner-card-front">
-      <p>
-          $(data.question) `
+       `;
 
           card.addEventListener('click', () => card.classList.toggle('show-answer'))
 
